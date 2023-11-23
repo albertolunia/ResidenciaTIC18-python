@@ -1,11 +1,17 @@
-import pickle
+import os
 
 # Lista de tarefas
-try:
-    with open('tarefas.pkl', 'rb') as f:
-        tarefas = pickle.load(f)
-except:
-    tarefas = []
+tarefas = []
+
+# Carregar tarefas do arquivo
+if os.path.exists("tarefas.txt"):
+    with open("tarefas.txt", "r") as arquivo:
+        for linha in arquivo:
+            if ";" in linha:
+                descricao, realizada = linha.strip().split(";")
+                tarefas.append([descricao, realizada == "True"])
+            else:
+                print(f"Linha inválida encontrada: {linha}")
 
 # Função para listar as tarefas
 def listar_tarefas():
@@ -20,7 +26,6 @@ def registrar_tarefa():
     descricao = input("Digite a descrição da tarefa: ")
     tarefas.append([descricao.capitalize(), False])
     print("Tarefa registrada!!!")
-    salvar_tarefas()
 
 # Função para marcar uma tarefa como realizada
 def marcar_tarefa():
@@ -33,7 +38,6 @@ def marcar_tarefa():
             tarefa[1] = True
             tarefas.insert(0, tarefa)
             print("Tarefa marcada como realizada!!!")
-            salvar_tarefas()
 
 # Função para editar uma tarefa
 def editar_tarefa():
@@ -45,12 +49,6 @@ def editar_tarefa():
             descricao = input("Digite a nova descrição da tarefa: ")
             tarefas[id][0] = descricao.capitalize()
             print("Tarefa editada!!!")
-            salvar_tarefas()
-
-# Função para salvar as tarefas
-def salvar_tarefas():
-    with open('tarefas.pkl', 'wb') as f:
-        pickle.dump(tarefas, f)
 
 # Loop principal do aplicativo
 while True:
@@ -70,3 +68,8 @@ while True:
         editar_tarefa()
     elif opcao == 5:
         break
+
+# Salvar tarefas no arquivo ao sair
+with open("tarefas.txt", "w") as arquivo:
+    for tarefa in tarefas:
+        arquivo.write(f"{tarefa[0]};{tarefa[1]}\n")
