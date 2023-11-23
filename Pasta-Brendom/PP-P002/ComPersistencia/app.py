@@ -9,14 +9,14 @@ def limparTerminal():
         os.system('cls')
 
 def salvarTarefas(listaTarefas):
-    with open('/tarefas.txt', 'w') as file:
+    with open('Pasta-Brendom/PP-P002/ComPersistencia/tarefas.txt', 'w') as file:
         for tarefa in listaTarefas:
             file.write(f"{tarefa.id},{tarefa.descricao},{tarefa.status}\n")
 
 def carregarTarefas():
     lista_tarefas = []
     try:
-        with open('tarefas.txt', 'r') as file:
+        with open('Pasta-Brendom/PP-P002/ComPersistencia/tarefas.txt', 'r') as file:
             for line in file:
                 dados_tarefa = line.strip().split(',')
                 if len(dados_tarefa) >= 3:
