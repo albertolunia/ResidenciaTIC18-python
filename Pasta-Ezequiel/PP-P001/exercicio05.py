@@ -1,4 +1,3 @@
-
 import sys
 
 # Operadores aritméticos e aritméticos compostos
@@ -25,7 +24,11 @@ print(a)
 
 # Maior e menor potência de 2 que pode ser representada com variáveis de ponto flutuante
 print("\nMaior e menor potência de 2:")
-print(2.0 ** sys.float_info.max_exp)  # Maior potência de 2
+max_exp = sys.float_info.max_exp
+if max_exp < 1024:  # 1024 é um valor seguro para a maioria dos sistemas
+    print(2.0 ** max_exp)  # Maior potência de 2
+else:
+    print("O expoente é muito grande para calcular a potência.")
 print(2.0 ** sys.float_info.min_exp)  # Menor potência de 2
 
 # Imutabilidade das variáveis numéricas
