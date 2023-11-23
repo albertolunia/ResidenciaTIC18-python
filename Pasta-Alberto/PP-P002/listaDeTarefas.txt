@@ -1,3 +1,2 @@
-3. Tarefa1[x]
-1. Tarefa3[ ]
-2. Tarefa2[ ]
+2. Tarefa 3[x]
+1. Tarefa 1[ ]
