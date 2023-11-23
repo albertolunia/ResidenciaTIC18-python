@@ -1,4 +1,0 @@
-Uesc,True
-T,True
-H,True
-TTTT,False

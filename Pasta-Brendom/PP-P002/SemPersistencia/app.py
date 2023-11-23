@@ -1,11 +1,18 @@
 import os
 from Tarefa import *
 
+def limparTerminal():
+    sistema_operacional = os.name
+    if sistema_operacional == 'posix':
+        os.system('clear')
+    else:
+        os.system('cls')
+
 # INICIO
 listaTarefas = []
 
 while True:
-  os.system("clear")
+  limparTerminal()
   print("Menu ToDo:")
   print("1. Criar Tarefa")
   print("2. Concluir Tarefa")
@@ -23,8 +30,7 @@ while True:
   
   match opcao:
     case 1:
-      
-      os.system("clear")
+      limparTerminal()
       print("-- Criacao de Tarefa --")
       novaTarefa = Tarefa(input("Digite a descrição da tarefa: "), False)
       listaTarefas.append(novaTarefa)
@@ -32,8 +38,7 @@ while True:
       input("Pressione Enter para continuar...")
       
     case 2:
-      
-      os.system("clear")
+      limparTerminal()
       print("-- Conclusão de Tarefa --")
       
       existeTarefaPendente = False
@@ -62,8 +67,7 @@ while True:
             input("Pressione Enter para continuar...")
             
     case 3:
-      
-      os.system("clear")
+      limparTerminal()
       print("-- Edição de Tarefa --")
       if len(listaTarefas) == 0:
         print("Nenhuma tarefa!", end="\n\n")
@@ -82,8 +86,7 @@ while True:
             input("Pressione Enter para continuar...")
 
     case 4:
-      
-      os.system("clear")
+      limparTerminal()
       print("-- Lista de Tarefas --")
       if len(listaTarefas) == 0:
         print("Nenhuma tarefa!", end="\n\n")
