@@ -12,7 +12,14 @@ while True:
   print("3. Editar Tarefa")
   print("4. Listar Tarefa")
   print("5. Sair")
-  opcao = int(input("Escolha uma opção: "))
+  opcao = 0
+  while(opcao < 1 or opcao > 5):
+    try:
+      opcao = int(input("Escolha uma opção: "))
+    except:
+      print("AVISO: Digite um numero!")
+    if opcao < 1 or opcao > 5:
+      print("AVISO: Opção inválida! Digite entre 1 e 5")
   
   match opcao:
     case 1:
@@ -34,7 +41,7 @@ while True:
         if tarefa.status == "[]":
           existeTarefaPendente = True
           break
-        
+      
       if not existeTarefaPendente:
         print("Nenhuma tarefa pendente!", end="\n\n")
         input("Pressione Enter para continuar...")
@@ -50,6 +57,7 @@ while True:
           if tarefa.id == tarefaConcluir:
             novoStatus = "[x]"
             tarefa.status = novoStatus
+            listaTarefas.insert(0, listaTarefas.pop(listaTarefas.index(tarefa)))
             print("Tarefa concluída!", end="\n\n")
             input("Pressione Enter para continuar...")
             
@@ -89,4 +97,4 @@ while True:
       print("Encerrando app...")
       break
     case _:
-      print("Opção inválida. Por favor, digite entre 1 e 5.")
+      print("AVISO: Opção inválida. Por favor, digite entre 1 e 5.")
