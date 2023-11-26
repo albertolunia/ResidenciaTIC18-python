@@ -49,9 +49,15 @@ def aplicativo_teste():
 
         reajusta_dez_porcento(lista_empregados)
 
-        print("\nLista de empregados após o reajuste de 10%:")
+        print(">>> Lista de empregados após o reajuste de 10%: <<<")
         for empregado in lista_empregados:
-            print(empregado)
+            print(f"Nome: {empregado.get('nome')}")
+            print(f"Sobrenome: {empregado.get('sobrenome')}")
+            print(f"Data de Nascimeto: {empregado.get('ano_nascimento')}")
+            print(f"RG: {empregado.get('rg')}")
+            print(f"Ano Admissao: {empregado.get('ano_admissao')}")
+            print(f"Salario: {float(empregado.get('salario')):.2f}")
+            print("-------------------------------------")
     else:
         print("Não foi possível carregar a lista de empregados.")
 
