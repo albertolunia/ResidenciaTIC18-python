@@ -1,4 +1,3 @@
-# main.py
 from supermercado.supermecado import Supermercado
 
 def main():
@@ -23,6 +22,7 @@ def main():
         elif opcao == "4":
             supermercado.consultar_preco()
         elif opcao == "0":
+            supermercado.salvar_produtos()
             break
         else:
             print("Opção inválida. Tente novamente.")
