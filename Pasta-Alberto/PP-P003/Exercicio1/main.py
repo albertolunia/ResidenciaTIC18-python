@@ -1,8 +1,7 @@
 from supermercado import funcoes
 
 def main():
-    lista_produtos = []
-    funcoes.menu(lista_produtos)
+    funcoes.menu()
 
 if __name__ == '__main__':
     main()
