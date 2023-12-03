@@ -1,6 +1,7 @@
 # listadatas.py
 from analise_Dados import AnaliseDados
 from data import Data
+from datetime import datetime, timedelta
 
 class ListaDatas(AnaliseDados):
     @property
@@ -30,16 +31,21 @@ class ListaDatas(AnaliseDados):
         print(f"Maior {self.label}: {max(self._dados)}")
 
     def calcularMediana(self):
-        sorted_dados = sorted(self._dados)
-        mid = len(sorted_dados) // 2
-        if len(sorted_dados) % 2 == 0:
-            median_values = sorted_dados[mid - 1:mid + 1]
-            median = sum(median_values) / 2
-        else:
-            median = sorted_dados[mid]
-        return median
-
+       sorted_dados = sorted(self._dados, key=lambda x: (x.ano, x.mes, x.dia))
+       mid = len(sorted_dados) // 2
+       if len(sorted_dados) % 2 == 0:
+         d1 = datetime(sorted_dados[mid - 1].ano, sorted_dados[mid - 1].mes, sorted_dados[mid - 1].dia)
+         d2 = datetime(sorted_dados[mid].ano, sorted_dados[mid].mes, sorted_dados[mid].dia)
+         t1 = d1.timestamp()
+         t2 = d2.timestamp()
+         t_avg = (t1 + t2) / 2
+         d_avg = datetime.fromtimestamp(t_avg)
+         median = Data(d_avg.day, d_avg.month, d_avg.year)
+       else:
+         median = sorted_dados[mid]
+       return median
+    
     def listarEmOrdem(self):
-        print("Lista de Datas em Ordem:")
-        for data in sorted(self._dados):
+        print(f"Lista de {self.label}s em Ordem:")
+        for data in sorted(self._dados, key=lambda x: (x.ano, x.mes, x.dia)):
             print(data)

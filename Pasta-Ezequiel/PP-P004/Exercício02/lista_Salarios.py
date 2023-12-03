@@ -37,9 +37,7 @@ class ListaSalarios(AnaliseDados):
         else:
             median = sorted_dados[mid]
         return median
-    
-    
     def listarEmOrdem(self):
-        print("Lista de Salários em Ordem:")
+        print(f"Lista de {self.label}s em Ordem:")
         for salario in sorted(self._dados):
             print(salario)

@@ -10,8 +10,6 @@ class AnaliseDados(ABC):
     @abstractmethod
     def label(self):
         pass
-    
-   
 
     @abstractmethod
     def entradaDeDados(self):
@@ -28,7 +26,6 @@ class AnaliseDados(ABC):
     @abstractmethod
     def calcularMediana(self):
         pass
-    
     @abstractmethod
     def listarEmOrdem(self):
         pass

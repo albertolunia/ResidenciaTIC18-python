@@ -1,4 +1,4 @@
-
+# listaidades.py
 from analise_Dados import AnaliseDados
 
 class ListaIdades(AnaliseDados):
@@ -15,9 +15,10 @@ class ListaIdades(AnaliseDados):
                         idade = int(input(f"Digite uma {self.label}: "))
                         if idade < 0:
                             raise ValueError("A idade não pode ser negativa.")
-                        break  
+                        break
                     except ValueError as e:
                         print(f"Erro: {e}")
+                self._dados.append(idade)
         except ValueError:
             print("Erro: Insira um número válido.")
 
@@ -38,6 +39,6 @@ class ListaIdades(AnaliseDados):
         return median
     
     def listarEmOrdem(self):
-        print("Lista de Idades em Ordem:")
+        print(f"Lista de {self.label}s em Ordem:")
         for idade in sorted(self._dados):
             print(idade)
