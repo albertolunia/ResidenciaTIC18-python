@@ -29,6 +29,9 @@ class AnaliseDados(ABC):
     @abstractmethod
     def listarEmOrdem(self):
         pass
+    
+    def __iter__(self):
+        return iter(self._dados)
 
     def __repr__(self):
         return f"{self.__class__.__name__}({self._tipoDeDados}) - Dados: {self._dados}"
