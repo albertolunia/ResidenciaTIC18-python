@@ -1,4 +1,4 @@
-# listasalarios.py
+
 from analise_Dados import AnaliseDados
 
 class ListaSalarios(AnaliseDados):
@@ -10,7 +10,14 @@ class ListaSalarios(AnaliseDados):
         try:
             n = int(input(f"Quantos {self.label}s você deseja adicionar? "))
             for _ in range(n):
-                salario = float(input(f"Digite um {self.label}: "))
+                while True:
+                    try:
+                        salario = float(input(f"Digite um {self.label}: "))
+                        if salario < 0:
+                            raise ValueError("O salário não pode ser negativo.")
+                        break  
+                    except ValueError as e:
+                        print(f"Erro: {e}")
                 self._dados.append(salario)
         except ValueError:
             print("Erro: Insira um número válido.")
@@ -28,6 +35,5 @@ class ListaSalarios(AnaliseDados):
             median_values = sorted_dados[mid - 1:mid + 1]
             median = sum(median_values) / 2
         else:
-            median = sorted_dados
             median = sorted_dados[mid]
         return median

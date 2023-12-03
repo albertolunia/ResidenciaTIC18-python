@@ -1,4 +1,4 @@
-# main.py
+
 from lista_Nomes import ListaNomes
 from lista_Datas import ListaDatas
 from lista_Salarios import ListaSalarios

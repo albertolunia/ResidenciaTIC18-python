@@ -1,4 +1,4 @@
-# analisedados.py
+
 from abc import ABC, abstractmethod
 
 class AnaliseDados(ABC):

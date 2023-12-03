@@ -11,13 +11,17 @@ class ListaDatas(AnaliseDados):
         try:
             n = int(input(f"Quantas {self.label}s você deseja adicionar? "))
             for _ in range(n):
-                dia = int(input("Digite o dia: "))
-                mes = int(input("Digite o mês: "))
-                ano = int(input("Digite o ano: "))
-                data = Data(dia, mes, ano)
+                while True:
+                    try:
+                        data_str = input("Digite a data (formato: dd/mm/aaaa): ")
+                        dia, mes, ano = map(int, data_str.split('/'))
+                        data = Data(dia, mes, ano)
+                        break  # Exit the loop if the input is valid
+                    except (ValueError, IndexError) as e:
+                        print(f"Erro: {e}")
                 self._dados.append(data)
-        except ValueError as e:
-            print(f"Erro: {e}")
+        except ValueError:
+            print("Erro: Insira um número válido.")
 
     def mostraMenor(self):
         print(f"Menor {self.label}: {min(self._dados)}")

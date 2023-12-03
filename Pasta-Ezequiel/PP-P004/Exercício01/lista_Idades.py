@@ -1,4 +1,4 @@
-# listaidades.py
+
 from analise_Dados import AnaliseDados
 
 class ListaIdades(AnaliseDados):
@@ -10,8 +10,14 @@ class ListaIdades(AnaliseDados):
         try:
             n = int(input(f"Quantas {self.label}s você deseja adicionar? "))
             for _ in range(n):
-                idade = int(input(f"Digite uma {self.label}: "))
-                self._dados.append(idade)
+                while True:
+                    try:
+                        idade = int(input(f"Digite uma {self.label}: "))
+                        if idade < 0:
+                            raise ValueError("A idade não pode ser negativa.")
+                        break  
+                    except ValueError as e:
+                        print(f"Erro: {e}")
         except ValueError:
             print("Erro: Insira um número válido.")
 

@@ -1,4 +1,3 @@
-# data.py
 
 class Data:
     def __init__(self, dia=1, mes=1, ano=2000):
