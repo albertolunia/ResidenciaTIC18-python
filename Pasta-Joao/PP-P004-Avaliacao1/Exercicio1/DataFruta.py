@@ -108,11 +108,6 @@ class ListaNomes(AnaliseDados):
         for i in range(qtd_elementos):
             nome = input("Digite o nome para ser adicionado a lista: ")
             self.__lista.append(nome)
-        '''
-        Este método pergunta ao usuários quantos
-        elementos vão existir na lista e depois
-        solicita a digitação de cada um deles.
-        '''
         
     def mostraMediana(self):
         
@@ -122,23 +117,14 @@ class ListaNomes(AnaliseDados):
             print(f"Mediana: {sorted_lista[meio-1]}")
         else:
             print(f"Mediana: {sorted_lista[meio]}")
-        '''
-        Este método ordena a lista e mostra o
-        elemento que está na metade da lista
-        '''
+        
 
     def mostraMenor(self):
         print(f"Menor: {min(self.__lista)}")
-        '''
-        Este método retorna o menos elemento da lista
-        '''
-
+        
     def mostraMaior(self):
         print(f"Maior: {max(self.__lista)}") 
-        '''
-        Este método retorna o maior elemento da lista
-        '''
-
+       
     def __str__(self):
         return f'Objeto da classe ListaNomes com lista: {self.__lista}'
 	
@@ -157,12 +143,7 @@ class ListaDatas(AnaliseDados):
             ano = int(input("Ano: "))
             data = Data(dia, mes, ano)
             self.__lista.append(data)
-        
-        '''
-        Este método pergunta ao usuários quantos
-        elementos vão existir na lista e depois
-        solicita a digitação de cada um deles
-        '''
+         
     
     def mostraMediana(self):
         sorted_lista = sorted(self.__lista)
@@ -171,25 +152,15 @@ class ListaDatas(AnaliseDados):
             print(f"Mediana: {sorted_lista[meio-1]}")
         else:
             print(f"Mediana: {sorted_lista[meio]}")
-        '''
-        Este método ordena a lista e mostra o
-        elemento que está na metade da lista
-        '''
-            
+         
     def mostraMenor(self):
         print(f"Menor: {min(self.__lista)}")
-        '''
-        Este método retorna o menos elemento da lista
-        '''
-    
+        
     def mostraMaior(self):
         print(f"Maior: {max(self.__lista)}")
-        '''
-        Este método retorna o maior elemento da lista
-        '''
-    
+        
     def __str__(self):
-        return f'Objeto da classe YourClass com lista: {self.__lista}'
+        return f'Objeto da classe ListaDatas com lista: {self.__lista}'
 
 class ListaSalarios(AnaliseDados):
 
@@ -202,11 +173,6 @@ class ListaSalarios(AnaliseDados):
         for i in range(qtd_elementos):
             salario = float(input("Digite o salario para ser adicionado a lista: "))
             self.__lista.append(salario)
-        '''
-        Este método pergunta ao usuários quantos
-        elementos vão existir na lista e depois
-        solicita a digitação de cada um deles
-        '''
 
     def mostraMediana(self):
         sorted_lista = sorted(self.__lista)
@@ -215,25 +181,15 @@ class ListaSalarios(AnaliseDados):
             print(f"Mediana: {(sorted_lista[meio - 1] + sorted_lista[meio]) / 2}")
         else:
             print(f"Mediana: {sorted_lista[meio]}")
-        '''
-        Este método ordena a lista e mostra o
-        elemento que está na metade da lista
-        '''  
 
     def mostraMenor(self):
         print(f"Menor: {min(self.__lista)}")
-        '''
-        Este método retorna o menos elemento da lista
-        '''
         
     def mostraMaior(self):
         print(f"Maior: {max(self.__lista)}") 
-        '''
-        Este método retorna o maior elemento da lista
-        '''
-    
+        
     def __str__(self):
-        return f'Objeto da classe ListaDatas com lista: {self.__lista}'
+        return f'Objeto da classe ListaSalarios com lista: {self.__lista}'
 
 class ListaIdades(AnaliseDados):
     
@@ -246,11 +202,6 @@ class ListaIdades(AnaliseDados):
         for i in range(qtd_elementos):
             idade = int(input("Digite a idade para ser adicionada a lista: "))
             self.__lista.append(idade)
-        '''
-        Este método pergunta ao usuários quantos
-        elementos vão existir na lista e depois
-        solicita a digitação de cada um deles
-        '''
     
     def mostraMediana(self):
         sorted_lista = sorted(self.__lista)
@@ -259,22 +210,14 @@ class ListaIdades(AnaliseDados):
             print(f"Mediana: {(sorted_lista[meio - 1] + sorted_lista[meio]) / 2}")
         else:
             print(f"Mediana: {sorted_lista[meio]}")
-        '''
-        Este método ordena a lista e mostra o
-        elemento que está na metade da lista
-        '''
-           
+        
     def mostraMenor(self):
         print(f"Menor: {min(self.__lista)}")
-        '''
-        Este método retorna o menos elemento da lista
-        '''
+        
     
     def mostraMaior(self):
         print(f"Maior: {max(self.__lista)}") 
-        '''
-        Este método retorna o maior elemento da lista
-        '''
+
 
     def __str__(self):
         return f'Objeto da classe ListaIdades com lista: {self.__lista}'
