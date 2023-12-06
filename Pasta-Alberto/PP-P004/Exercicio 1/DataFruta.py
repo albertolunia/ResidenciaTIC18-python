@@ -73,6 +73,11 @@ class Data:
                 if self.__dia > outraData.__dia:
                     return True
         return False
+    
+	
+	
+    def __str__(self):
+        return f"{self.dia}/{self.mes}/{self.ano}"
 
 class AnaliseDados(ABC): 
 
@@ -103,30 +108,24 @@ class ListaNomes(AnaliseDados):
         self.__lista = []        
 
     def entradaDeDados(self):
-        
-        qtd_elementos = int(input("Digite a quantidade de elementos que irão existir na lista de nomes: "))
-        for i in range(qtd_elementos):
-            nome = input("Digite o nome para ser adicionado a lista: ")
+        qtd_elementos = int(input("Quantos elementos na lista de nomes? "))
+        for _ in range(qtd_elementos):
+            nome = input("Digite um nome: ")
             self.__lista.append(nome)
-        
+
     def mostraMediana(self):
-        
         sorted_lista = sorted(self.__lista)
         meio = len(sorted_lista) // 2
-        if (len(sorted_lista) % 2 == 0):
-            print(f"Mediana: {sorted_lista[meio-1]}")
-        else:
-            print(f"Mediana: {sorted_lista[meio]}")
-        
+        print(f"Mediana: {sorted_lista[meio]}")  
 
     def mostraMenor(self):
         print(f"Menor: {min(self.__lista)}")
-        
+
     def mostraMaior(self):
-        print(f"Maior: {max(self.__lista)}") 
-       
+        print(f"Maior: {max(self.__lista)}")   
+
     def __str__(self):
-        return f'Objeto da classe ListaNomes com lista: {self.__lista}'
+         return f'Objeto da classe ListaNomes com lista: {self.__lista}'
 	
 class ListaDatas(AnaliseDados):
         
@@ -135,30 +134,25 @@ class ListaDatas(AnaliseDados):
         self.__lista = []        
     
     def entradaDeDados(self):
-        qtd_elementos = int(input("Digite a quantidade de elementos que irão existir na lista de datas: "))
-        for i in range(qtd_elementos):
-            print(f"\nData {i + 1}:")
+        qtd_elementos = int(input("Quantos elementos na lista de datas? "))
+        for _ in range(qtd_elementos):
             dia = int(input("Dia: "))
             mes = int(input("Mês: "))
             ano = int(input("Ano: "))
             data = Data(dia, mes, ano)
             self.__lista.append(data)
-         
     
     def mostraMediana(self):
-        sorted_lista = sorted(self.__lista)
+        sorted_lista = sorted(self.__lista, key=lambda x: (x.ano, x.mes, x.dia))
         meio = len(sorted_lista) // 2
-        if (len(sorted_lista) % 2 == 0):
-            print(f"Mediana: {sorted_lista[meio-1]}")
-        else:
-            print(f"Mediana: {sorted_lista[meio]}")
-         
+        print(f"Mediana: {sorted_lista[meio]}")   
+     
     def mostraMenor(self):
         print(f"Menor: {min(self.__lista)}")
-        
+    
     def mostraMaior(self):
         print(f"Maior: {max(self.__lista)}")
-        
+    
     def __str__(self):
         return f'Objeto da classe ListaDatas com lista: {self.__lista}'
 
@@ -169,25 +163,26 @@ class ListaSalarios(AnaliseDados):
         self.__lista = []        
 
     def entradaDeDados(self):
-        qtd_elementos = int(input("Digite a quantidade de elementos que irão existir na lista de salarios: "))
-        for i in range(qtd_elementos):
-            salario = float(input("Digite o salario para ser adicionado a lista: "))
+        qtd_elementos = int(input("Quantos elementos na lista de salários? "))
+        for _ in range(qtd_elementos):
+            salario = float(input("Digite um salário: "))
             self.__lista.append(salario)
 
     def mostraMediana(self):
         sorted_lista = sorted(self.__lista)
         meio = len(sorted_lista) // 2
-        if (len(sorted_lista) % 2 == 0):
-            print(f"Mediana: {(sorted_lista[meio - 1] + sorted_lista[meio]) / 2}")
+        if len(sorted_lista) % 2 == 0:
+            mediana = (sorted_lista[meio - 1] + sorted_lista[meio]) / 2
         else:
-            print(f"Mediana: {sorted_lista[meio]}")
+            mediana = sorted_lista[meio]
+        print(f"Mediana: {mediana}")  
 
     def mostraMenor(self):
         print(f"Menor: {min(self.__lista)}")
-        
+
     def mostraMaior(self):
-        print(f"Maior: {max(self.__lista)}") 
-        
+        print(f"Maior: {max(self.__lista)}")
+    
     def __str__(self):
         return f'Objeto da classe ListaSalarios com lista: {self.__lista}'
 
@@ -198,26 +193,25 @@ class ListaIdades(AnaliseDados):
         self.__lista = []        
     
     def entradaDeDados(self):
-        qtd_elementos = int(input("Digite a quantidade de elementos que irão existir na lista de idades: "))
-        for i in range(qtd_elementos):
-            idade = int(input("Digite a idade para ser adicionada a lista: "))
+        qtd_elementos = int(input("Quantos elementos na lista de idades? "))
+        for _ in range(qtd_elementos):
+            idade = int(input("Digite uma idade: "))
             self.__lista.append(idade)
     
     def mostraMediana(self):
         sorted_lista = sorted(self.__lista)
         meio = len(sorted_lista) // 2
-        if (len(sorted_lista) % 2 == 0):
-            print(f"Mediana: {(sorted_lista[meio - 1] + sorted_lista[meio]) / 2}")
+        if len(sorted_lista) % 2 == 0:
+            mediana = (sorted_lista[meio - 1] + sorted_lista[meio]) / 2
         else:
-            print(f"Mediana: {sorted_lista[meio]}")
-        
+            mediana = sorted_lista[meio]
+        print(f"Mediana: {mediana}")  
+    
     def mostraMenor(self):
         print(f"Menor: {min(self.__lista)}")
-        
     
     def mostraMaior(self):
-        print(f"Maior: {max(self.__lista)}") 
-
+        print(f"Maior: {max(self.__lista)}")
 
     def __str__(self):
         return f'Objeto da classe ListaIdades com lista: {self.__lista}'
@@ -235,7 +229,6 @@ def main():
         lista.mostraMediana()
         lista.mostraMenor()
         lista.mostraMaior()
-        print(lista)
         print("___________________")
 
     print("Fim do teste!!!")
