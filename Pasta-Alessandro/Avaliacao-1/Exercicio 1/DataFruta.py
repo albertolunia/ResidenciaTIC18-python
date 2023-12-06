@@ -125,7 +125,7 @@ class ListaNomes(AnaliseDados):
         print(f"Maior: {max(self.__lista)}")   
 
     def __str__(self):
-        pass
+         return f'Objeto da classe ListaNomes com lista: {self.__lista}'
 	
 class ListaDatas(AnaliseDados):
         
@@ -154,7 +154,7 @@ class ListaDatas(AnaliseDados):
         print(f"Maior: {max(self.__lista)}")
     
     def __str__(self):
-        pass
+        return f'Objeto da classe ListaDatas com lista: {self.__lista}'
 
 class ListaSalarios(AnaliseDados):
 
@@ -184,7 +184,7 @@ class ListaSalarios(AnaliseDados):
         print(f"Maior: {max(self.__lista)}")
     
     def __str__(self):
-        pass
+        return f'Objeto da classe ListaSalarios com lista: {self.__lista}'
 
 class ListaIdades(AnaliseDados):
     
@@ -214,7 +214,7 @@ class ListaIdades(AnaliseDados):
         print(f"Maior: {max(self.__lista)}")
 
     def __str__(self):
-        pass
+        return f'Objeto da classe ListaIdades com lista: {self.__lista}'
 
 def main():
     nomes = ListaNomes()
